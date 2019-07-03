@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo /usr/bin/qmicli -d /dev/cdc-wdm0 -p --nas-get-signal-strength
+sudo /usr/bin/qmicli -d /dev/cdc-wdm0 -p --wds-get-packet-statistics
+
+exit 0

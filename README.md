@@ -1,23 +1,25 @@
 ### Backpack with LTE and wi-fi
 
-Hardware:
-* Raspberry Pi Zero W
-* LTE modem _(D-Link DWM-221 in my case)_
-* SIM card with Internet
-* SD card
-* Battery pack _(better 2 for swapping)_
-* USB micro to B cable _(for modem)_
-* USB micro to A cable _(for battery)_
-* Raspberry Pi Zero Case
-* Case for Goggles
-* Backpack
-
 
 ## The Idea
 
 You have a SIM card with unlimited Internet data bundle. You have another SIM card, that you use
 in youre phone. You want to use unlimited Internet and keep your phone number. So you get an LTE
 modem, and share the connection via Wi-Fi.
+
+
+### Hardware
+
+* Raspberry Pi Zero W
+* LTE modem _(D-Link DWM-221 in my case)_
+* SIM card with Internet
+* SD card
+* Battery pack _(better 2 for swapping)_
+* USB micro-to B cable _(for modem)_
+* USB micro-to-A cable _(for battery)_
+* Raspberry Pi Zero Case
+* Case for Goggles
+* Backpack
 
 
 ## Do It
@@ -47,8 +49,18 @@ Refer to http://wiredtron.com/2018/07/07/raspberry-pi-with-huawei-E397u-53-dongl
 Refer to https://scribles.net/creating-wireless-router-using-raspberry-pi-zero-w/ for the whole process,
 use _wwan0_ instead of _wlan1_.
 
-Install these packages:
+
+### Extra
+
+Setup basic *status* HTTP server. Check [http-server.py](http-server.py), [stats](stats) for the
+sources, and [etc/systemd/system/http-server.service](etc/systemd/system/http-server.service) for
+the service definition.
+
+Enabling the service then is done with these commands:
 
 ```
-sudo apt-get install hostapd dnsmasq -y
+sudo systemctl enable http-server
+sudo systemctl status http-server
+sudo systemctl start http-server
+sudo systemctl status http-server
 ```
