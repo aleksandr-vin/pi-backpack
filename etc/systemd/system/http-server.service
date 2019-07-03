@@ -1,0 +1,9 @@
+[Unit]
+Description=my server
+After=network-online.target
+
+[Service]
+ExecStart=/home/pi/http-server.py
+
+[Install]
+WantedBy=multi-user.target
